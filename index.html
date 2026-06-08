@@ -15,21 +15,16 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;background:var(--bg);color:var(--t);display:flex;flex-direction:column;max-width:600px;margin:0 auto}
-/* header */
 .hdr{background:var(--bc);border-bottom:1px solid var(--bl2);padding:12px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
 .hico{width:36px;height:36px;background:var(--o);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;flex-shrink:0}
-/* tabs */
 .tabs{display:flex;background:var(--bc);border-bottom:1px solid var(--bl2);flex-shrink:0}
 .tab{flex:1;padding:11px 8px;font-size:13px;font-weight:500;background:none;border:none;color:var(--t3);cursor:pointer;border-bottom:2px solid transparent;display:flex;align-items:center;justify-content:center;gap:5px}
 .tab.active{color:var(--o);border-bottom-color:var(--o)}
-/* scroll */
 .tc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .sec{padding:14px 14px 90px}
-/* card */
 .card{background:var(--bc);border-radius:12px;border:1px solid var(--bl2);margin-bottom:12px;padding:14px;box-shadow:var(--sh)}
 .ct{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .sn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--o);color:#fff;font-size:11px;font-weight:700;flex-shrink:0}
-/* inputs */
 label{font-size:12px;color:var(--t2);display:block;margin-bottom:4px;margin-top:12px}
 label:first-child{margin-top:0}
 input[type=text],input[type=number],select,textarea{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:8px;font-size:15px;background:var(--bi);color:var(--t);font-family:inherit;-webkit-appearance:none;outline:none;transition:border-color .15s}
@@ -37,10 +32,8 @@ input:focus,select:focus,textarea:focus{border-color:var(--o)}
 textarea{resize:vertical;min-height:60px}
 .r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-/* badges */
 .bdg{display:inline-block;font-size:11px;padding:2px 7px;border-radius:5px;font-weight:600}
 .bf{background:#EAF3DE;color:#3B6D11}.bm{background:#FEF3E2;color:#8B4800}.bg2{background:#FCEBEB;color:#A32D2D}.be{background:#E6F1FB;color:#0C447C}
-/* buttons */
 .btn{padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--bd);background:var(--bi);color:var(--t);display:inline-flex;align-items:center;gap:7px;user-select:none;transition:transform .1s}
 .btn:active{transform:scale(.97)}
 .btp{background:var(--o);color:#fff;border-color:var(--o)}
@@ -48,17 +41,8 @@ textarea{resize:vertical;min-height:60px}
 .btf{width:100%;justify-content:center;margin-top:8px}
 .btsm{padding:7px 11px;font-size:13px}
 .bgrp{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-
-/* === PHOTO BUTTON PRINCIPAL === */
-.photo-main-btn{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  padding:28px 16px;
-  background:linear-gradient(135deg,var(--ol),#FDE8DC);
-  border:2px dashed var(--ob);border-radius:14px;
-  cursor:pointer;user-select:none;
-  transition:all .15s;text-align:center;
-}
-.photo-main-btn:active{background:#F5D0C0;border-color:var(--od);}
+.photo-main-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:28px 16px;background:linear-gradient(135deg,var(--ol),#FDE8DC);border:2px dashed var(--ob);border-radius:14px;cursor:pointer;user-select:none;transition:all .15s;text-align:center}
+.photo-main-btn:active{background:#F5D0C0;border-color:var(--od)}
 .photo-main-btn .ico{font-size:52px;color:var(--o);line-height:1}
 .photo-main-btn .title{font-size:17px;font-weight:700;color:var(--od)}
 .photo-main-btn .sub{font-size:12px;color:var(--t2);line-height:1.4}
@@ -66,8 +50,6 @@ textarea{resize:vertical;min-height:60px}
 .photo-sub-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;border:1.5px dashed var(--bd);border-radius:8px;cursor:pointer;font-size:12px;font-weight:500;color:var(--t2);background:var(--bi);user-select:none}
 .photo-sub-btn:active{border-color:var(--o);color:var(--o)}
 .photo-sub-btn i{font-size:20px}
-
-/* === GPS STATUS === */
 .gps-status{border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:10px;font-size:13px}
 .gps-status.ok{background:#E8F7F1;border:1px solid #A8DCC8;color:#0A4D30}
 .gps-status.warn{background:#FFF8EC;border:1px solid #FFD080;color:#6B4A00}
@@ -77,28 +59,22 @@ textarea{resize:vertical;min-height:60px}
 .gps-info{flex:1;min-width:0}
 .gps-info .gtitle{font-weight:600}
 .gps-info .gval{font-size:11px;margin-top:2px;opacity:.8;word-break:break-all}
-.gps-spin{animation:sp 1s linear infinite}
+.spin{animation:sp 1s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
-
-/* thumbs */
 .ptbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .pdel{position:relative}
 .pthb{width:72px;height:72px;border-radius:8px;object-fit:cover;border:1px solid var(--bl2);display:block;cursor:pointer}
 .delbtn{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--r);border:none;color:#fff;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
-/* rue bar */
 .ruebar{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--ol);border-radius:8px;border:1px solid var(--ob);margin-bottom:12px;font-size:13px;color:var(--od)}
 .ruebar strong{flex:1;font-weight:600}
 .ruebar button{background:none;border:none;color:var(--od);cursor:pointer;font-size:12px;padding:3px 7px;border-radius:5px}
-/* surface */
 .scalcbox{display:flex;align-items:center;gap:10px;padding:9px 13px;margin-top:10px;background:var(--ol);border-radius:8px;border:1px solid var(--ob)}
 .scalcbox .v{font-size:20px;font-weight:700;color:var(--o)}
 .scalcbox .l{font-size:12px;color:var(--od)}
-/* stats */
 .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
 .sbox{background:var(--bc);border-radius:12px;padding:12px;border:1px solid var(--bl2);box-shadow:var(--sh);text-align:center}
 .sbox .v{font-size:24px;font-weight:700;color:var(--o)}
 .sbox .l{font-size:11px;color:var(--t3);margin-top:2px;font-weight:500}
-/* recap */
 .rgrp{margin-bottom:10px}
 .rhdr{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--bc);border-radius:12px;border:1px solid var(--bl2);font-size:14px;font-weight:600;box-shadow:var(--sh)}
 .rn{display:flex;align-items:center;gap:7px}
@@ -112,71 +88,62 @@ textarea{resize:vertical;min-height:60px}
 .robs{font-size:12px;color:var(--t2);margin-top:4px;font-style:italic}
 .rphotos{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .rph{width:72px;height:56px;border-radius:6px;object-fit:cover;border:1px solid var(--bl2);cursor:pointer}
-/* export */
 .ibox{background:var(--bi);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--t2);border:1px solid var(--bd);margin:10px 0 12px;line-height:1.6}
 .ibox code{font-family:'SF Mono','Consolas',monospace;font-size:12px;color:var(--t);background:var(--bc);padding:1px 5px;border-radius:4px;border:1px solid var(--bl2)}
-/* save bar */
 .savebar{position:fixed;bottom:0;left:0;right:0;max-width:600px;margin:0 auto;padding:12px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--bl2);z-index:100}
-/* modal */
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:500;align-items:center;justify-content:center}
 .modal.open{display:flex}
 .modal img{max-width:95vw;max-height:90vh;border-radius:8px;object-fit:contain}
 .mcls{position:fixed;top:16px;right:16px;background:rgba(255,255,255,.15);border:none;border-radius:50%;width:40px;height:40px;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff}
 .empty{text-align:center;color:var(--t3);padding:3rem 1rem}
 .empty i{font-size:40px;display:block;margin-bottom:10px}
-/* toast */
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#1A1A18;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;z-index:600;animation:fu .25s ease;pointer-events:none;white-space:nowrap;font-weight:500;box-shadow:0 4px 20px rgba(0,0,0,.3)}
 @keyframes fu{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+/* Modale projet */
+.mprojet{display:flex;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:800;align-items:center;justify-content:center;padding:20px}
+.mprojet-box{background:#fff;border-radius:16px;padding:28px 22px;width:100%;max-width:420px;box-shadow:0 8px 40px rgba(0,0,0,.25);max-height:90vh;overflow-y:auto}
+.mprojet-ico{width:52px;height:52px;background:var(--o);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px}
+.proj-existant{padding:10px 12px;border:1px solid var(--bl2);border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;background:var(--bi)}
+.proj-existant:active{background:var(--ol)}
 </style>
 </head>
 <body>
 
 <!-- MODALE PROJET -->
-<div id="modal-projet" style="display:flex;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:900;align-items:center;justify-content:center;padding:20px">
-  <div style="background:#fff;border-radius:16px;padding:28px 22px;width:100%;max-width:420px;box-shadow:0 8px 40px rgba(0,0,0,.25)">
+<div class="mprojet" id="mprojet">
+  <div class="mprojet-box">
     <div style="text-align:center;margin-bottom:20px">
-      <div style="width:52px;height:52px;background:var(--o);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px">
-        <i class="ti ti-road" style="font-size:28px;color:white"></i>
-      </div>
-      <div style="font-size:20px;font-weight:700;color:var(--t)">Campagne nids de poule</div>
+      <div class="mprojet-ico"><i class="ti ti-road" style="font-size:28px;color:white"></i></div>
+      <div style="font-size:20px;font-weight:700">Campagne nids de poule</div>
       <div style="font-size:13px;color:var(--t3);margin-top:4px">Definir le projet avant de commencer</div>
     </div>
-
-    <label style="margin-top:0;font-size:13px;font-weight:600;color:var(--t2)">Nom du projet *</label>
-    <input type="text" id="projet-nom" placeholder="Ex : Villejuif centre - campagne 2026" style="margin-bottom:12px;font-size:15px">
-
-    <label style="font-size:13px;font-weight:600;color:var(--t2)">Ville / commune</label>
-    <input type="text" id="projet-ville" placeholder="Ex : Villejuif" style="margin-bottom:12px">
-
-    <label style="font-size:13px;font-weight:600;color:var(--t2)">Operateur (optionnel)</label>
-    <input type="text" id="projet-operateur" placeholder="Ex : Jean Dupont" style="margin-bottom:20px">
-
-    <button onclick="demarrerProjet()" class="btn btp" style="width:100%;justify-content:center;padding:14px;font-size:16px">
+    <label style="margin-top:0;font-weight:600">Nom du projet *</label>
+    <input type="text" id="p-nom" placeholder="Ex : Villejuif centre 2026">
+    <label style="font-weight:600">Ville / commune</label>
+    <input type="text" id="p-ville" placeholder="Ex : Villejuif">
+    <label style="font-weight:600">Operateur</label>
+    <input type="text" id="p-oper" placeholder="Ex : Jean Dupont" style="margin-bottom:16px">
+    <div id="p-err" style="color:var(--r);font-size:12px;text-align:center;margin-bottom:8px;display:none">Le nom du projet est obligatoire</div>
+    <button id="btn-demarrer" class="btn btp" style="width:100%;justify-content:center;padding:14px;font-size:16px">
       <i class="ti ti-arrow-right"></i> Demarrer la campagne
     </button>
-
-    <div id="projet-erreur" style="color:var(--r);font-size:12px;text-align:center;margin-top:8px;display:none">
-      Le nom du projet est obligatoire
-    </div>
-
-    <!-- Projets existants -->
-    <div id="projets-existants" style="margin-top:16px;border-top:1px solid var(--bl2);padding-top:14px;display:none">
-      <div style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:8px"><i class="ti ti-history"></i> Reprendre un projet existant</div>
+    <div id="projets-wrap" style="margin-top:16px;border-top:1px solid var(--bl2);padding-top:14px;display:none">
+      <div style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:8px"><i class="ti ti-history"></i> Reprendre un projet</div>
       <div id="projets-liste"></div>
     </div>
   </div>
 </div>
 
+<!-- APP -->
 <div class="hdr">
   <div class="hico"><i class="ti ti-road"></i></div>
   <div style="flex:1">
-    <div style="font-size:15px;font-weight:700;color:var(--t)" id="projet-titre">Campagne nids de poule</div>
-    <div style="font-size:11px;color:var(--o);font-weight:500" id="projet-ville-hdr"></div>
-    <div id="hdr-sub" style="font-size:11px;color:var(--t3)">0 releve &middot; 0 m&sup2; total</div>
+    <div style="font-size:15px;font-weight:700" id="hdr-titre">Campagne nids de poule</div>
+    <div id="hdr-sub" style="font-size:11px;color:var(--t3)">0 releve &middot; 0 m&sup2;</div>
   </div>
   <div style="text-align:right;flex-shrink:0">
-    <div style="font-size:10px;color:var(--t3);font-weight:500"><i class="ti ti-device-floppy" style="font-size:11px"></i> AUTO</div>
-    <div id="autosave-status" style="font-size:10px;color:var(--t3)">En attente...</div>
+    <div style="font-size:10px;color:var(--t3)"><i class="ti ti-device-floppy" style="font-size:11px"></i> AUTO</div>
+    <div id="autosave-ts" style="font-size:10px;color:var(--t3)">--</div>
   </div>
 </div>
 
@@ -187,73 +154,44 @@ textarea{resize:vertical;min-height:60px}
 </div>
 
 <div class="tc">
-
   <!-- SAISIE -->
   <div id="tab-saisie" class="sec">
-
     <div id="ruebar" class="ruebar" style="display:none">
-      <i class="ti ti-map-pin"></i>
-      <strong id="ruebar-lbl"></strong>
+      <i class="ti ti-map-pin"></i><strong id="ruebar-lbl"></strong>
       <button onclick="clearRue()"><i class="ti ti-x"></i> Changer</button>
     </div>
-
-    <!-- ETAPE 1 : PHOTO + GPS capture simultanee -->
     <div class="card">
       <div class="ct"><span class="sn">1</span><i class="ti ti-camera" style="color:var(--o)"></i> Photo &amp; GPS</div>
-
-      <!-- Bouton principal : capture GPS + ouvre camera -->
-      <div class="photo-main-btn" id="photo-main-btn" onclick="captureGPSAndPhoto()">
+      <div class="photo-main-btn" onclick="captureGPSAndPhoto()">
         <div class="ico"><i class="ti ti-camera-plus"></i></div>
         <div class="title">Photographier le nid de poule</div>
-        <div class="sub">Le GPS du telephone est capture automatiquement<br>au moment de la prise de vue</div>
+        <div class="sub">GPS capture automatiquement au moment de la prise de vue</div>
       </div>
-
-      <!-- Boutons secondaires -->
       <div class="photo-sub-row">
-        <div class="photo-sub-btn" onclick="captureGPSAndPhoto()">
-          <i class="ti ti-camera"></i>Camera
-        </div>
-        <div class="photo-sub-btn" onclick="importFromGallery()">
-          <i class="ti ti-photo"></i>Galerie
-        </div>
-        <div class="photo-sub-btn" onclick="tryGPSOnly()">
-          <i class="ti ti-gps"></i>GPS seul
-        </div>
+        <div class="photo-sub-btn" onclick="captureGPSAndPhoto()"><i class="ti ti-camera"></i>Camera</div>
+        <div class="photo-sub-btn" onclick="document.getElementById('fi-gal').click()"><i class="ti ti-photo"></i>Galerie</div>
+        <div class="photo-sub-btn" onclick="tryGPSOnly()"><i class="ti ti-gps"></i>GPS seul</div>
       </div>
-
       <input type="file" id="fi-cam" accept="image/*" capture="environment" style="display:none" onchange="onPhotoSelected(this)">
       <input type="file" id="fi-gal" accept="image/*" multiple style="display:none" onchange="onGallerySelected(this)">
-
       <div class="ptbs" id="pthumbs"></div>
     </div>
-
-    <!-- ETAPE 2 : GPS STATUS -->
     <div class="card">
       <div class="ct"><span class="sn">2</span><i class="ti ti-map-pin" style="color:var(--o)"></i> Position GPS</div>
-
       <div class="gps-status warn" id="gps-status">
         <i class="ti ti-map-pin-question"></i>
-        <div class="gps-info">
-          <div class="gtitle">En attente</div>
-          <div class="gval" id="gps-val">Prendre une photo pour capturer le GPS automatiquement</div>
-        </div>
+        <div class="gps-info"><div class="gtitle">En attente</div><div class="gval" id="gps-val">Prendre une photo pour capturer le GPS</div></div>
       </div>
-
-      <!-- Saisie manuelle toujours accessible -->
       <div style="margin-top:10px">
-        <div style="font-size:12px;color:var(--t3);margin-bottom:6px">Correction ou saisie manuelle :</div>
+        <div style="font-size:12px;color:var(--t3);margin-bottom:6px">Saisie manuelle si besoin :</div>
         <div class="r3">
           <div><label style="margin-top:0">Latitude</label><input type="text" id="g-lat" placeholder="48.8123" inputmode="decimal" oninput="onManualGPS()"></div>
           <div><label style="margin-top:0">Longitude</label><input type="text" id="g-lng" placeholder="2.3634" inputmode="decimal" oninput="onManualGPS()"></div>
           <div><label style="margin-top:0">Precision</label><input type="number" id="g-acc" placeholder="m" inputmode="numeric" oninput="onManualGPS()"></div>
         </div>
-        <button class="btn btsm" style="margin-top:8px;color:var(--b);border-color:var(--b);font-size:12px" onclick="openGMaps()">
-          <i class="ti ti-map-2"></i> Ouvrir Google Maps pour copier les coords
-        </button>
+        <button class="btn btsm" style="margin-top:8px;color:var(--b);border-color:var(--b);font-size:12px" onclick="openGMaps()"><i class="ti ti-map-2"></i> Google Maps</button>
       </div>
     </div>
-
-    <!-- ETAPE 3 : RUE -->
     <div class="card">
       <div class="ct"><span class="sn">3</span><i class="ti ti-road" style="color:var(--o)"></i> Rue &amp; details</div>
       <label style="margin-top:0">Rue / voie</label>
@@ -262,33 +200,24 @@ textarea{resize:vertical;min-height:60px}
       <div class="r2" style="margin-top:12px">
         <div><label style="margin-top:0">N&deg; / repere</label><input type="text" id="repere" placeholder="42, face mairie"></div>
         <div><label style="margin-top:0">Gravite</label>
-          <select id="gravite">
-            <option value="faible">Faible</option>
-            <option value="moyen" selected>Moyen</option>
-            <option value="grave">Grave</option>
-          </select>
+          <select id="gravite"><option value="faible">Faible</option><option value="moyen" selected>Moyen</option><option value="grave">Grave</option></select>
         </div>
       </div>
     </div>
-
-    <!-- ETAPE 4 : SURFACE -->
     <div class="card">
-      <div class="ct"><span class="sn">4</span><i class="ti ti-ruler-2" style="color:var(--o)"></i> Surface a reprendre</div>
+      <div class="ct"><span class="sn">4</span><i class="ti ti-ruler-2" style="color:var(--o)"></i> Surface</div>
       <div class="r2">
         <div><label style="margin-top:0">Longueur (m)</label><input type="number" id="lon" placeholder="1.5" step="0.1" min="0" inputmode="decimal"></div>
         <div><label style="margin-top:0">Largeur (m)</label><input type="number" id="lar" placeholder="0.8" step="0.1" min="0" inputmode="decimal"></div>
       </div>
       <div class="scalcbox"><div><div class="v" id="scalc">--</div><div class="l">m&sup2; calcule</div></div></div>
-      <label>Surface manuelle m&sup2; <span style="color:var(--t3);font-weight:400">(forme irreguliere)</span></label>
+      <label>Surface manuelle m&sup2;</label>
       <input type="number" id="sman" placeholder="1.2" step="0.1" min="0" inputmode="decimal">
     </div>
-
-    <!-- ETAPE 5 : OBS -->
     <div class="card">
       <div class="ct"><span class="sn">5</span><i class="ti ti-note" style="color:var(--o)"></i> Observations <span style="font-size:11px;font-weight:400;color:var(--t3)">(optionnel)</span></div>
-      <textarea id="obs" placeholder="Degradation, fissures, eau stagnante, zone PL..." style="margin-top:0"></textarea>
+      <textarea id="obs" placeholder="Degradation, fissures, eau stagnante..." style="margin-top:0"></textarea>
     </div>
-
     <div style="height:80px"></div>
   </div>
 
@@ -304,59 +233,47 @@ textarea{resize:vertical;min-height:60px}
 
   <!-- EXPORT -->
   <div id="tab-export" class="sec" style="display:none">
-
-    <!-- BARRE STOCKAGE -->
     <div class="card" style="padding:12px 14px">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-        <span style="font-size:12px;font-weight:600;color:var(--t2)"><i class="ti ti-database" style="font-size:14px"></i> Stockage local</span>
+        <span style="font-size:12px;font-weight:600;color:var(--t2)"><i class="ti ti-database"></i> Stockage local</span>
         <span id="storage-txt" style="font-size:11px;color:var(--t3)">--</span>
       </div>
       <div style="background:var(--bi);border-radius:4px;height:6px;overflow:hidden;border:1px solid var(--bd)">
         <div id="storage-bar" style="height:100%;width:0%;background:var(--g);border-radius:4px;transition:width .3s"></div>
       </div>
-      <div style="font-size:11px;color:var(--t3);margin-top:5px">Photos stockees dans IndexedDB (illimite) &mdash; seules les metadonnees utilisent le stockage local</div>
+      <div style="font-size:11px;color:var(--t3);margin-top:5px">Photos dans IndexedDB (illimite) &mdash; metadonnees dans localStorage</div>
     </div>
-
     <div class="card">
       <div class="ct"><i class="ti ti-file-zip" style="color:var(--g)"></i> Export ZIP (CSV + photos)</div>
-      <div class="ibox">
-        <code>nids_de_poule.csv</code> tableau Excel avec noms fichiers photos<br>
-        <code>photos/</code> images nommees <code>RUE_repere_01.jpg</code>
-      </div>
-      <button class="btn bts btf" id="btn-zip" onclick="exportZIP()"><i class="ti ti-download"></i> Telecharger ZIP</button>
+      <div class="ibox"><code>nids_de_poule.csv</code> tableau + noms photos<br><code>photos/</code> images nommees par rue</div>
+      <button id="btn-zip" class="btn bts btf" onclick="exportZIP()"><i class="ti ti-download"></i> Telecharger ZIP</button>
     </div>
     <div class="card">
       <div class="ct"><i class="ti ti-file-spreadsheet" style="color:var(--b)"></i> Export CSV seul</div>
-      <p style="font-size:13px;color:var(--t2);margin-bottom:10px">Tableau leger, sans images.</p>
       <button class="btn btf" style="color:var(--b);border-color:var(--b)" onclick="exportCSV()"><i class="ti ti-download"></i> Telecharger CSV</button>
     </div>
     <div class="card">
       <div class="ct"><i class="ti ti-world" style="color:var(--b)"></i> Export KML (Google Earth)</div>
-      <p style="font-size:13px;color:var(--t2);margin-bottom:10px">Points colores par gravite. Google Earth, My Maps, QGIS.</p>
       <button class="btn btf" style="color:var(--b);border-color:var(--b)" onclick="exportKML()"><i class="ti ti-download"></i> Telecharger KML</button>
     </div>
     <div class="card">
       <div class="ct"><i class="ti ti-database" style="color:#534AB7"></i> Sauvegarde / restauration</div>
-      <p style="font-size:13px;color:var(--t2)">JSON complet avec photos. Reprendre depuis n'importe quel appareil.</p>
       <div class="bgrp">
-        <button class="btn" onclick="saveJSON()"><i class="ti ti-device-floppy"></i> Sauvegarder</button>
-        <button class="btn" onclick="document.getElementById('li').click()"><i class="ti ti-upload"></i> Charger</button>
+        <button class="btn" onclick="saveJSON()"><i class="ti ti-device-floppy"></i> Sauvegarder JSON</button>
+        <button class="btn" onclick="document.getElementById('li').click()"><i class="ti ti-upload"></i> Charger JSON</button>
       </div>
       <input type="file" id="li" accept=".json" style="display:none" onchange="loadJSON(this)">
     </div>
     <div class="card">
-      <div class="ct"><i class="ti ti-folder-plus" style="color:var(--b)"></i> Gestion de projet</div>
-      <p style="font-size:13px;color:var(--t2);margin-bottom:8px">Demarrer un nouveau projet ou changer de projet actif.</p>
+      <div class="ct"><i class="ti ti-folder-plus" style="color:var(--b)"></i> Gestion projet</div>
       <button class="btn btf" style="color:var(--b);border-color:var(--b)" onclick="changerProjet()"><i class="ti ti-refresh"></i> Nouveau projet / changer</button>
     </div>
     <div class="card" style="border-color:#FAD4D4">
-      <div class="ct"><i class="ti ti-trash" style="color:var(--r)"></i> <span style="color:var(--r)">Reinitialiser le projet</span></div>
-      <p style="font-size:13px;color:var(--t2)">Efface tous les releves du projet en cours.</p>
-      <button class="btn btf" style="color:var(--r);border-color:#FAD4D4;margin-top:8px" onclick="clearAll()"><i class="ti ti-trash"></i> Tout effacer</button>
+      <div class="ct"><i class="ti ti-trash" style="color:var(--r)"></i><span style="color:var(--r)">Reinitialiser</span></div>
+      <button class="btn btf" style="color:var(--r);border-color:#FAD4D4;margin-top:8px" onclick="clearAll()"><i class="ti ti-trash"></i> Effacer tous les releves</button>
     </div>
     <div style="height:20px"></div>
   </div>
-
 </div>
 
 <div class="savebar" id="savebar">
@@ -371,247 +288,309 @@ textarea{resize:vertical;min-height:60px}
 </div>
 
 <script>
-/* === INDEXEDDB - stockage photos (pas de limite de taille) === */
-var DB_NAME='ndp_photos', DB_VER=1, DB_STORE='photos';
-var _db=null;
-
-function openDB(cb){
-  if(_db){cb(_db);return;}
-  var req=indexedDB.open(DB_NAME,DB_VER);
-  req.onupgradeneeded=function(e){e.target.result.createObjectStore(DB_STORE,{keyPath:'id'});};
-  req.onsuccess=function(e){_db=e.target.result;cb(_db);};
-  req.onerror=function(){console.warn('IndexedDB indisponible');cb(null);};
+/* ================================================
+   INDEXEDDB — photos
+   ================================================ */
+var _db = null;
+function openDB(cb) {
+  if (_db) { cb(_db); return; }
+  var req = indexedDB.open('ndp_photos', 1);
+  req.onupgradeneeded = function(e) { e.target.result.createObjectStore('photos', {keyPath:'id'}); };
+  req.onsuccess = function(e) { _db = e.target.result; cb(_db); };
+  req.onerror = function() { cb(null); };
 }
-
-function dbSavePhotos(releveId, photos, cb){
-  openDB(function(db){
-    if(!db){cb&&cb();return;}
-    var tx=db.transaction(DB_STORE,'readwrite'),st=tx.objectStore(DB_STORE);
-    st.put({id:String(releveId),photos:photos});
-    tx.oncomplete=function(){cb&&cb();};
-    tx.onerror=function(){cb&&cb();};
+function dbSave(id, photos, cb) {
+  openDB(function(db) {
+    if (!db) { cb && cb(); return; }
+    var tx = db.transaction('photos','readwrite');
+    tx.objectStore('photos').put({id: String(id), photos: photos});
+    tx.oncomplete = function() { cb && cb(); };
+    tx.onerror = function() { cb && cb(); };
   });
 }
-
-function dbGetPhotos(releveId, cb){
-  openDB(function(db){
-    if(!db){cb([]);return;}
-    var tx=db.transaction(DB_STORE,'readonly'),st=tx.objectStore(DB_STORE);
-    var req=st.get(String(releveId));
-    req.onsuccess=function(e){cb(e.target.result?e.target.result.photos:[]);};
-    req.onerror=function(){cb([]);};
+function dbGet(id, cb) {
+  openDB(function(db) {
+    if (!db) { cb([]); return; }
+    var tx = db.transaction('photos','readonly');
+    var req = tx.objectStore('photos').get(String(id));
+    req.onsuccess = function(e) { cb(e.target.result ? e.target.result.photos : []); };
+    req.onerror = function() { cb([]); };
   });
 }
-
-function dbDeletePhotos(releveId){
-  openDB(function(db){
-    if(!db)return;
-    var tx=db.transaction(DB_STORE,'readwrite');
-    tx.objectStore(DB_STORE).delete(String(releveId));
-  });
-}
-
-function dbGetAllPhotos(ids, cb){
-  // Recuperer les photos de plusieurs releves en parallele
-  openDB(function(db){
-    if(!db){cb({});return;}
-    var result={}, remaining=ids.length;
-    if(!remaining){cb(result);return;}
-    ids.forEach(function(id){
-      var tx=db.transaction(DB_STORE,'readonly');
-      var req=tx.objectStore(DB_STORE).get(String(id));
-      req.onsuccess=function(e){
-        result[id]=e.target.result?e.target.result.photos:[];
-        remaining--;if(!remaining)cb(result);
-      };
-      req.onerror=function(){remaining--;if(!remaining)cb(result);};
+function dbGetAll(ids, cb) {
+  openDB(function(db) {
+    if (!db || !ids.length) { cb({}); return; }
+    var res = {}, rem = ids.length;
+    ids.forEach(function(id) {
+      var tx = db.transaction('photos','readonly');
+      var req = tx.objectStore('photos').get(String(id));
+      req.onsuccess = function(e) { res[id] = e.target.result ? e.target.result.photos : []; if(!--rem) cb(res); };
+      req.onerror = function() { res[id]=[]; if(!--rem) cb(res); };
     });
   });
 }
-
-/* === STORAGE SIZE CHECK === */
-function checkStorageAndWarn(){
-  // Verifier la taille de localStorage
-  try{
-    var used=JSON.stringify(localStorage).length*2/1024/1024; // Mo approximatif
-    var el=document.getElementById('storage-bar');
-    if(!el)return;
-    var pct=Math.min(100,Math.round(used/5*100));
-    el.style.width=pct+'%';
-    el.style.background=pct>80?'var(--r)':pct>60?'#F5A623':'var(--g)';
-    document.getElementById('storage-txt').textContent='LocalStorage: '+used.toFixed(2)+' Mo / 5 Mo ('+pct+'%)';
-    if(pct>80)toast('Attention : stockage presque plein ! Exporter le ZIP maintenant.');
-  }catch(e){}
+function dbDel(id) {
+  openDB(function(db) {
+    if (!db) return;
+    db.transaction('photos','readwrite').objectStore('photos').delete(String(id));
+  });
 }
 
-/* === STATE === */
-var releves=[],gps=null,pending=[],rueActive=null;
-var projet={nom:'',ville:'',operateur:'',key:'',date:''};
-// releves ne contient PLUS les photos (stockees dans IndexedDB)
-// On garde juste les metadonnees + noms de fichiers
-try{var _s=localStorage.getItem('ndp13');if(_s)releves=JSON.parse(_s);}catch(e){}
+/* ================================================
+   ETAT GLOBAL
+   ================================================ */
+var releves = [];
+var projet = {nom:'', ville:'', operateur:'', key:'', date:''};
+var gps = null;
+var pending = [];
+var rueActive = null;
 
-function persist(){
-  try{
-    // Sauvegarder dans la cle du projet courant
-    var key=projet.key||'ndp_projet_defaut';
-    var data=Object.assign({},projet,{releves:releves,updated:new Date().toISOString()});
-    localStorage.setItem(key,JSON.stringify(data));
-    // Garder aussi ndp13 pour compat
-    localStorage.setItem('ndp13',JSON.stringify(releves));
-    checkStorageAndWarn();
-  }catch(e){
-    if(e.name==='QuotaExceededError'){
-      toast('ERREUR : stockage plein ! Exporter le ZIP immediatement !');
+/* ================================================
+   PROJET — initialisation
+   ================================================ */
+function initApp() {
+  // Charger depuis localStorage
+  try {
+    var pc = localStorage.getItem('ndp_projet_courant');
+    if (pc) {
+      projet = JSON.parse(pc);
+      var data = projet.key ? localStorage.getItem(projet.key) : null;
+      if (data) {
+        var d = JSON.parse(data);
+        releves = d.releves || [];
+      }
+      // Pré-remplir la modale
+      document.getElementById('p-nom').value = projet.nom || '';
+      document.getElementById('p-ville').value = projet.ville || '';
+      document.getElementById('p-oper').value = projet.operateur || '';
     }
+  } catch(e) {}
+  chargerProjetsExistants();
+  updateHdr();
+  updateSug();
+}
+
+function demarrerProjet() {
+  var nom = document.getElementById('p-nom').value.trim();
+  if (!nom) {
+    document.getElementById('p-err').style.display = 'block';
+    return;
+  }
+  document.getElementById('p-err').style.display = 'none';
+
+  projet.nom = nom;
+  projet.ville = document.getElementById('p-ville').value.trim();
+  projet.operateur = document.getElementById('p-oper').value.trim();
+  projet.date = today();
+  projet.key = 'ndp_' + slugify(nom);
+
+  // Charger releves existants de ce projet si present
+  try {
+    var ex = localStorage.getItem(projet.key);
+    releves = ex ? (JSON.parse(ex).releves || []) : [];
+  } catch(e) { releves = []; }
+
+  // Sauvegarder projet courant
+  try { localStorage.setItem('ndp_projet_courant', JSON.stringify(projet)); } catch(e) {}
+
+  // Fermer modale
+  document.getElementById('mprojet').style.display = 'none';
+
+  // Mettre a jour header
+  document.getElementById('hdr-titre').textContent = nom + (projet.ville ? ' — ' + projet.ville : '');
+
+  updateSug();
+  updateHdr();
+  toast('Projet : ' + nom);
+}
+
+function changerProjet() {
+  if (!confirm('Changer de projet ? Le projet actuel est sauvegarde.')) return;
+  persist();
+  releves = [];
+  projet = {nom:'', ville:'', operateur:'', key:'', date:''};
+  gps = null; pending = []; rueActive = null;
+  document.getElementById('ruebar').style.display = 'none';
+  document.getElementById('p-nom').value = '';
+  document.getElementById('p-ville').value = '';
+  document.getElementById('p-oper').value = '';
+  document.getElementById('p-err').style.display = 'none';
+  chargerProjetsExistants();
+  document.getElementById('mprojet').style.display = 'flex';
+  showTab('saisie');
+}
+
+function chargerProjetsExistants() {
+  var projets = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    if (k && k.indexOf('ndp_') === 0 && k !== 'ndp_projet_courant') {
+      try {
+        var d = JSON.parse(localStorage.getItem(k));
+        if (d && d.nom) projets.push(d);
+      } catch(e) {}
+    }
+  }
+  var wrap = document.getElementById('projets-wrap');
+  var liste = document.getElementById('projets-liste');
+  if (!projets.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'block';
+  liste.innerHTML = projets.map(function(p) {
+    return '<div class="proj-existant" onclick="reprendreProjet('' + p.key + '')">'
+      + '<strong>' + p.nom + '</strong>' + (p.ville ? ' &mdash; ' + p.ville : '')
+      + '<div style="font-size:11px;color:var(--t3)">' + (p.date||'') + ' &middot; ' + (p.releves ? p.releves.length : 0) + ' releves</div>'
+      + '</div>';
+  }).join('');
+}
+
+function reprendreProjet(key) {
+  try {
+    var d = JSON.parse(localStorage.getItem(key));
+    if (!d) return;
+    document.getElementById('p-nom').value = d.nom || '';
+    document.getElementById('p-ville').value = d.ville || '';
+    document.getElementById('p-oper').value = d.operateur || '';
+  } catch(e) {}
+}
+
+/* ================================================
+   PERSIST
+   ================================================ */
+function persist() {
+  try {
+    var key = projet.key || 'ndp_defaut';
+    var data = {nom:projet.nom, ville:projet.ville, operateur:projet.operateur, date:projet.date, key:key, releves:releves, updated:new Date().toISOString()};
+    localStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem('ndp_projet_courant', JSON.stringify(projet));
+  } catch(e) {
+    if (e.name === 'QuotaExceededError') toast('STOCKAGE PLEIN — exporter maintenant !');
   }
 }
 
-/* === SAUVEGARDE AUTOMATIQUE === */
-var _autoSaveTimer=null;
-function autoSave(){
-  // Declenche une sauvegarde JSON silencieuse 2 secondes apres le dernier releve
-  // (delai pour laisser le temps a IndexedDB de finir d'ecrire les photos)
-  clearTimeout(_autoSaveTimer);
-  _autoSaveTimer=setTimeout(function(){
-    var ids=releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
-    function doSave(photosMap){
-      photosMap=photosMap||{};
-      var export_data=releves.map(function(r){
-        var clone=Object.assign({},r);
-        clone.photos=photosMap[r.id]||[];
-        return clone;
+function checkStorage() {
+  try {
+    var used = JSON.stringify(localStorage).length * 2 / 1024 / 1024;
+    var pct = Math.min(100, Math.round(used / 5 * 100));
+    var bar = document.getElementById('storage-bar');
+    var txt = document.getElementById('storage-txt');
+    if (bar) { bar.style.width = pct + '%'; bar.style.background = pct > 80 ? 'var(--r)' : pct > 60 ? '#F5A623' : 'var(--g)'; }
+    if (txt) txt.textContent = used.toFixed(2) + ' Mo / 5 Mo (' + pct + '%)';
+    if (pct > 80) toast('Attention : stockage presque plein ! Exporter maintenant.');
+  } catch(e) {}
+}
+
+/* ================================================
+   SAUVEGARDE AUTO
+   ================================================ */
+var _autoTimer = null;
+function autoSave() {
+  clearTimeout(_autoTimer);
+  _autoTimer = setTimeout(function() {
+    var ids = releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
+    function doSave(pm) {
+      var data = releves.map(function(r) {
+        var c = Object.assign({}, r);
+        c.photos = pm[r.id] || [];
+        return c;
       });
-      var json=JSON.stringify(export_data);
-      var blob=new Blob([json],{type:'application/json'});
-      var a=document.createElement('a');
-      a.href=URL.createObjectURL(blob);
-      var pnom=projet.nom?slugify(projet.nom):'campagne';
-      a.download=pnom+'_'+today()+'_'+new Date().getHours().toString().padStart(2,'0')+'h'+new Date().getMinutes().toString().padStart(2,'0')+'.json';
+      var blob = new Blob([JSON.stringify(data)], {type:'application/json'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      var pnom = projet.nom ? slugify(projet.nom) : 'campagne';
+      var now = new Date();
+      a.download = pnom + '_' + today() + '_' + pad(now.getHours()) + 'h' + pad(now.getMinutes()) + '.json';
       a.click();
       URL.revokeObjectURL(a.href);
-      // Mettre a jour l'indicateur
-      updateAutoSaveUI();
+      var ts = document.getElementById('autosave-ts');
+      if (ts) { ts.textContent = pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds()); ts.style.color='var(--g)'; setTimeout(function(){if(ts)ts.style.color='var(--t3)';},3000); }
     }
-    if(ids.length){
-      dbGetAllPhotos(ids,function(photosMap){doSave(photosMap);});
-    }else{
-      doSave({});
-    }
-  },2000);
+    if (ids.length) { dbGetAll(ids, function(pm){doSave(pm);}); }
+    else { doSave({}); }
+  }, 2000);
 }
+function pad(n){return String(n).padStart(2,'0');}
 
-function updateAutoSaveUI(){
-  var now=new Date();
-  var str=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0')+':'+now.getSeconds().toString().padStart(2,'0');
-  var el=document.getElementById('autosave-status');
-  if(el){
-    el.textContent='Derniere sauvegarde auto : '+str;
-    el.style.color='var(--g)';
-    // Revenir en gris apres 3 secondes
-    setTimeout(function(){if(el)el.style.color='var(--t3)';},3000);
-  }
-}
-
-/* === TABS === */
-function showTab(t){
+/* ================================================
+   TABS
+   ================================================ */
+function showTab(t) {
   ['saisie','recap','export'].forEach(function(x,i){
-    document.getElementById('tab-'+x).style.display=x===t?'':'none';
-    document.querySelectorAll('.tab')[i].classList.toggle('active',x===t);
+    document.getElementById('tab-'+x).style.display = x===t?'':'none';
+    document.querySelectorAll('.tab')[i].classList.toggle('active', x===t);
   });
-  document.getElementById('savebar').style.display=t==='saisie'?'':'none';
-  if(t==='recap')renderRecap();
-  if(t==='export')checkStorageAndWarn();
+  document.getElementById('savebar').style.display = t==='saisie'?'':'none';
+  if (t==='recap') renderRecap();
+  if (t==='export') checkStorage();
   document.querySelector('.tc').scrollTo(0,0);
 }
 
-/* === RUE === */
+/* ================================================
+   RUE
+   ================================================ */
 function onRueTyping(){rueActive=null;document.getElementById('ruebar').style.display='none';}
 function setRue(rue){rueActive=rue;document.getElementById('ruebar-lbl').textContent=rue;document.getElementById('ruebar').style.display='flex';document.getElementById('rue').value=rue;}
 function clearRue(){rueActive=null;document.getElementById('ruebar').style.display='none';document.getElementById('rue').value='';document.getElementById('rue').focus();}
 
-/* === GPS UI === */
+/* ================================================
+   GPS
+   ================================================ */
 function setGPSUI(state,title,val){
   var el=document.getElementById('gps-status');
   el.className='gps-status '+state;
   var icons={ok:'ti-map-pin-check',warn:'ti-map-pin-question',err:'ti-map-pin-off',loading:'ti-loader-2'};
-  el.querySelector('i').className='ti '+icons[state]+(state==='loading'?' gps-spin':'');
+  el.querySelector('i').className='ti '+icons[state]+(state==='loading'?' spin':'');
   el.querySelector('.gtitle').textContent=title;
   document.getElementById('gps-val').textContent=val||'';
 }
-
 function applyGPS(g,src){
   gps=g;
-  if(!g){setGPSUI('warn','En attente','Prendre une photo ou utiliser GPS seul');return;}
-  var labels={auto:'GPS telephone',manuel:'Saisi manuellement',exif:'Extrait de la photo'};
-  setGPSUI('ok',labels[src]||src,g.lat+', '+g.lng+(g.acc?' \u00b1'+g.acc+'m':''));
+  if(!g){setGPSUI('warn','En attente','Prendre une photo ou GPS seul');return;}
+  var L={auto:'GPS telephone',manuel:'Saisi manuellement',exif:'Photo (EXIF)'};
+  setGPSUI('ok',L[src]||src,g.lat+', '+g.lng+(g.acc?' ±'+g.acc+'m':''));
   document.getElementById('g-lat').value=g.lat;
   document.getElementById('g-lng').value=g.lng;
   if(g.acc)document.getElementById('g-acc').value=g.acc;
 }
-
-/* === CAPTURER GPS + CAMERA EN PARALLELE === */
 function captureGPSAndPhoto(){
   document.getElementById('fi-cam').click();
   if(!navigator.geolocation){setGPSUI('err','GPS non disponible','Saisir manuellement');return;}
   setGPSUI('loading','GPS en cours...','');
   navigator.geolocation.getCurrentPosition(
     function(p){applyGPS({lat:p.coords.latitude.toFixed(6),lng:p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy),src:'auto'},'auto');},
-    function(e){var m={1:'Autoriser dans Reglages > Safari > Localisation',2:'GPS indisponible',3:'Reessayer en exterieur'};setGPSUI('err','GPS non obtenu',m[e.code]||'');},
+    function(e){var m={1:'Autoriser dans Reglages > Safari',2:'GPS indisponible',3:'Reessayer en exterieur'};setGPSUI('err','GPS non obtenu',m[e.code]||'');},
     {enableHighAccuracy:true,timeout:15000,maximumAge:0}
   );
 }
-
-function importFromGallery(){document.getElementById('fi-gal').click();}
 function tryGPSOnly(){
   if(!navigator.geolocation){setGPSUI('err','GPS non disponible','Saisir manuellement');return;}
-  setGPSUI('loading','Acquisition GPS...','');
+  setGPSUI('loading','Acquisition...','');
   navigator.geolocation.getCurrentPosition(
     function(p){applyGPS({lat:p.coords.latitude.toFixed(6),lng:p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy),src:'auto'},'auto');toast('GPS OK');},
-    function(e){var m={1:'Permission refusee',2:'GPS indisponible',3:'Delai depasse'};setGPSUI('err','Erreur GPS',m[e.code]||'');},
+    function(e){var m={1:'Permission refusee',2:'GPS indisponible',3:'Delai depasse'};setGPSUI('err',m[e.code]||'Erreur GPS','');},
     {enableHighAccuracy:true,timeout:12000,maximumAge:0}
   );
 }
-
 function onManualGPS(){
-  var lat=parseFloat(document.getElementById('g-lat').value.replace(',','.')),
-      lng=parseFloat(document.getElementById('g-lng').value.replace(',','.')),
-      acc=document.getElementById('g-acc').value;
-  if(!isNaN(lat)&&!isNaN(lng)&&Math.abs(lat)<=90&&Math.abs(lng)<=180){
-    applyGPS({lat:lat.toFixed(6),lng:lng.toFixed(6),acc:acc?parseInt(acc):null,src:'manuel'},'manuel');
-  }else if(document.getElementById('g-lat').value||document.getElementById('g-lng').value){
-    setGPSUI('err','Coordonnees invalides','Verifier la saisie');gps=null;
-  }
+  var lat=parseFloat(document.getElementById('g-lat').value.replace(',','.')),lng=parseFloat(document.getElementById('g-lng').value.replace(',','.')),acc=document.getElementById('g-acc').value;
+  if(!isNaN(lat)&&!isNaN(lng)&&Math.abs(lat)<=90&&Math.abs(lng)<=180){applyGPS({lat:lat.toFixed(6),lng:lng.toFixed(6),acc:acc?parseInt(acc):null,src:'manuel'},'manuel');}
+  else if(document.getElementById('g-lat').value||document.getElementById('g-lng').value){setGPSUI('err','Coordonnees invalides','');gps=null;}
 }
+function openGMaps(){window.open(gps?'https://maps.google.com/?q='+gps.lat+','+gps.lng:'https://maps.google.com','_blank');}
 
-function openGMaps(){window.open(gps?'https://maps.google.com/?q='+gps.lat+','+gps.lng:'https://maps.google.com','_blank');toast('Copier les coords depuis Maps puis coller ci-dessous');}
-
-/* === PHOTOS (stockage IndexedDB) === */
+/* ================================================
+   PHOTOS
+   ================================================ */
 function onPhotoSelected(inp){
-  var files=Array.from(inp.files);
-  if(!files.length)return;
-  files.forEach(function(f){
-    var dr=new FileReader();
-    dr.onload=function(e){pending.push(e.target.result);renderThumbs();};
-    dr.readAsDataURL(f);
-  });
+  Array.from(inp.files).forEach(function(f){var dr=new FileReader();dr.onload=function(e){pending.push(e.target.result);renderThumbs();};dr.readAsDataURL(f);});
   inp.value='';
 }
-
 function onGallerySelected(inp){
-  var files=Array.from(inp.files);
-  if(!files.length)return;
-  files.forEach(function(f){
+  Array.from(inp.files).forEach(function(f){
     var dr=new FileReader();
     dr.onload=function(e){
       pending.push(e.target.result);
-      // Tenter EXIF sur galerie
       var abr=new FileReader();
-      abr.onload=function(ev){
-        var exif=readExifGPS(ev.target.result);
-        if(exif&&!gps){applyGPS({lat:exif.lat,lng:exif.lng,acc:null,src:'exif'},'exif');toast('GPS extrait de la photo');}
-        renderThumbs();
-      };
+      abr.onload=function(ev){var ex=readExifGPS(ev.target.result);if(ex&&!gps){applyGPS({lat:ex.lat,lng:ex.lng,acc:null,src:'exif'},'exif');toast('GPS extrait de la photo');}renderThumbs();};
       abr.onerror=function(){renderThumbs();};
       abr.readAsArrayBuffer(f);
     };
@@ -619,8 +598,6 @@ function onGallerySelected(inp){
   });
   inp.value='';
 }
-
-/* === EXIF (galerie uniquement) === */
 function readExifGPS(buf){
   try{
     var view=new DataView(buf),len=view.byteLength;
@@ -649,7 +626,7 @@ function readExifGPS(buf){
           var lat=la[0]+la[1]/60+la[2]/3600,lng=lna[0]+lna[1]/60+lna[2]/3600;
           if(lr==='S')lat=-lat;if(lnr==='W')lng=-lng;
           if(lat===0&&lng===0||Math.abs(lat)>90||Math.abs(lng)>180)return null;
-          return{lat:lat.toFixed(6),lng:lng.toFixed(6),acc:null,src:'exif'};
+          return{lat:lat.toFixed(6),lng:lng.toFixed(6)};
         }
         off+=sl;
       }else if((mk&0xFF00)===0xFF00&&off+2<=len){var skip=view.getUint16(off,false);if(skip<2)break;off+=skip;}
@@ -658,7 +635,6 @@ function readExifGPS(buf){
   }catch(ex){}
   return null;
 }
-
 function renderThumbs(){
   document.getElementById('pthumbs').innerHTML=pending.map(function(d,i){
     return '<div class="pdel"><img class="pthb" src="'+d+'" onclick="openModal(this.src)"><button class="delbtn" onclick="delPhoto('+i+')">&#x2715;</button></div>';
@@ -666,19 +642,25 @@ function renderThumbs(){
 }
 function delPhoto(i){pending.splice(i,1);renderThumbs();}
 
-/* === SURFACE === */
+/* ================================================
+   SURFACE
+   ================================================ */
 document.getElementById('lon').addEventListener('input',calcS);
 document.getElementById('lar').addEventListener('input',calcS);
 function calcS(){var l=parseFloat(document.getElementById('lon').value),w=parseFloat(document.getElementById('lar').value);document.getElementById('scalc').textContent=(l>0&&w>0)?(l*w).toFixed(2):'--';}
 
-/* === SLUGIFY === */
+/* ================================================
+   SLUGIFY
+   ================================================ */
 function slugify(s){
-  var am={'\xe0':'a','\xe2':'a','\xe4':'a','\xe1':'a','\xe3':'a','\xe5':'a','\xe8':'e','\xe9':'e','\xea':'e','\xeb':'e','\xee':'i','\xef':'i','\xed':'i','\xec':'i','\xf4':'o','\xf6':'o','\xf3':'o','\xf2':'o','\xf5':'o','\xf9':'u','\xfb':'u','\xfc':'u','\xfa':'u','\xff':'y','\xe7':'c','\xc0':'A','\xc2':'A','\xc4':'A','\xc1':'A','\xc3':'A','\xc5':'A','\xc8':'E','\xc9':'E','\xca':'E','\xcb':'E','\xce':'I','\xcf':'I','\xcd':'I','\xcc':'I','\xd4':'O','\xd6':'O','\xd3':'O','\xd2':'O','\xd5':'O','\xd9':'U','\xdb':'U','\xdc':'U','\xda':'U','\xc7':'C'};
+  var am={'à':'a','â':'a','ä':'a','á':'a','ã':'a','è':'e','é':'e','ê':'e','ë':'e','î':'i','ï':'i','ô':'o','ö':'o','ù':'u','û':'u','ü':'u','ç':'c','À':'A','Â':'A','É':'E','Ê':'E','Î':'I','Ô':'O','Ù':'U','Û':'U','Ç':'C'};
   var r='';for(var i=0;i<s.length;i++){var c=s[i];r+=am[c]||c;}
   return r.replace(/[^a-zA-Z0-9]/g,'_').replace(/_+/g,'_').replace(/^_|_$/g,'').slice(0,40);
 }
 
-/* === ENREGISTRER === */
+/* ================================================
+   ENREGISTRER
+   ================================================ */
 function addReleve(){
   var rue=document.getElementById('rue').value.trim();
   if(!rue){toast('Saisir le nom de la rue');return;}
@@ -687,36 +669,25 @@ function addReleve(){
   if(surf<=0){toast('Saisir une surface');return;}
   var rep=document.getElementById('repere').value.trim(),ts=Date.now();
   var pNames=pending.map(function(d,i){var ext=d.indexOf('image/png')>-1?'png':'jpg';return slugify(rue)+'_'+slugify(rep||'releve')+'_'+String(i+1).padStart(2,'0')+'.'+ext;});
-
   var releve={id:ts,rue:rue,repere:rep,gravite:document.getElementById('gravite').value,longueur:l||null,largeur:w||null,surface:surf,obs:document.getElementById('obs').value.trim(),gps:gps?Object.assign({},gps):null,photoNames:pNames,nbPhotos:pending.length,ts:new Date(ts).toISOString()};
 
-  // Bloquer le bouton pendant l'ecriture IndexedDB
-  var saveBtn=document.getElementById('btn-save');
-  saveBtn.disabled=true;
-  saveBtn.innerHTML='<i class="ti ti-loader-2 gps-spin"></i> Sauvegarde...';
+  var btn=document.getElementById('btn-save');
+  btn.disabled=true;
+  btn.innerHTML='<i class="ti ti-loader-2 spin"></i> Sauvegarde...';
 
   var photosACopier=pending.slice();
+  var done=false;
+  var secTimer=setTimeout(function(){if(!done){done=true;afterSave();}},8000);
 
-  // Timeout securite 8s : si IndexedDB bloque on continue quand meme
-  var secTimer=setTimeout(function(){
-    console.warn('IndexedDB timeout');
-    afterSave();
-  },8000);
-
-  dbSavePhotos(ts, photosACopier, function(){
-    clearTimeout(secTimer);
-    afterSave();
+  dbSave(ts, photosACopier, function(){
+    if(!done){done=true;clearTimeout(secTimer);afterSave();}
   });
 
   function afterSave(){
-    // Confirmation IndexedDB recue -> valider le releve
     releves.push(releve);
-    persist();updateSug();updateHdr();setRue(rue);
-    autoSave();
-    // Debloquer bouton
-    saveBtn.disabled=false;
-    saveBtn.innerHTML='<i class="ti ti-check"></i> Enregistrer le releve';
-    // Reset UI
+    persist();updateSug();updateHdr();setRue(rue);autoSave();
+    btn.disabled=false;
+    btn.innerHTML='<i class="ti ti-check"></i> Enregistrer le releve';
     document.getElementById('repere').value='';document.getElementById('obs').value='';
     document.getElementById('lon').value='';document.getElementById('lar').value='';document.getElementById('sman').value='';
     document.getElementById('scalc').textContent='--';
@@ -724,14 +695,17 @@ function addReleve(){
     gps=null;
     document.getElementById('g-lat').value='';document.getElementById('g-lng').value='';document.getElementById('g-acc').value='';
     setGPSUI('warn','En attente','Prendre une photo pour le prochain releve');
-    toast('Releve enregistre - '+surf+' m²');
+    toast('Releve enregistre — '+surf+' m²');
     document.querySelector('.tc').scrollTo(0,0);
   }
+}
 
 function updateSug(){var rs=releves.map(function(r){return r.rue;}).filter(function(v,i,a){return a.indexOf(v)===i;});document.getElementById('rue-dl').innerHTML=rs.map(function(r){return '<option value="'+r+'">';}).join('');}
-function updateHdr(){var n=releves.length,s=releves.reduce(function(a,r){return a+r.surface;},0).toFixed(1);document.getElementById('hdr-sub').textContent=n+' releve'+(n>1?'s':'')+' \u00b7 '+s+' m\u00b2 total';}
+function updateHdr(){var n=releves.length,s=releves.reduce(function(a,r){return a+r.surface;},0).toFixed(1);document.getElementById('hdr-sub').textContent=n+' releve'+(n>1?'s':'')+' · '+s+' m²';}
 
-/* === RECAP (charge photos depuis IndexedDB a la volee) === */
+/* ================================================
+   RECAP
+   ================================================ */
 function renderRecap(){
   document.getElementById('s-nb').textContent=releves.length;
   document.getElementById('s-surf').textContent=releves.reduce(function(a,r){return a+r.surface;},0).toFixed(1);
@@ -739,73 +713,36 @@ function renderRecap(){
   document.getElementById('s-rues').textContent=Object.keys(map).length;
   var box=document.getElementById('recap-body');
   if(!releves.length){box.innerHTML='<div class="empty"><i class="ti ti-road-off"></i>Aucun releve</div>';return;}
-
-  // Construire le HTML sans photos d'abord
   box.innerHTML=Object.entries(map).map(function(e){
     var rue=e[0],items=e[1],tot=items.reduce(function(a,r){return a+r.surface;},0).toFixed(1);
     var rows=items.map(function(r,idx){
-      var gs=r.gps&&r.gps.src?{auto:'GPS',manuel:'Manuel',exif:'EXIF'}[r.gps.src]||r.gps.src:'';
-      var gh=r.gps?'<div class="rmeta"><i class="ti ti-map-pin" style="font-size:12px"></i>'+r.gps.lat+', '+r.gps.lng+(r.gps.acc?' \u00b1'+r.gps.acc+'m':'')+(gs?' <span class="bdg be">'+gs+'</span>':'')+'</div>':'';
+      var gs=r.gps&&r.gps.src?{auto:'GPS',manuel:'Manuel',exif:'EXIF'}[r.gps.src]||'':'';
+      var gh=r.gps?'<div class="rmeta"><i class="ti ti-map-pin" style="font-size:12px"></i>'+r.gps.lat+', '+r.gps.lng+(r.gps.acc?' ±'+r.gps.acc+'m':'')+(gs?' <span class="bdg be">'+gs+'</span>':'')+'</div>':'';
       var oh=r.obs?'<div class="robs">'+r.obs+'</div>':'';
       var cls=r.gravite==='faible'?'bf':r.gravite==='moyen'?'bm':'bg2';
-      var photoZone=r.nbPhotos?'<div class="rphotos" id="ph-'+r.id+'"><span style="font-size:12px;color:var(--t3)">Chargement photos...</span></div>':'';
-      return '<div class="ritem"><div class="rtop"><span>'+(r.repere||'Releve '+(idx+1))+' <span class="bdg '+cls+'">'+r.gravite+'</span></span><span class="rsurf">'+r.surface+' m\u00b2</span></div>'+gh+oh+photoZone+'</div>';
+      var pzone=r.nbPhotos?'<div class="rphotos" id="ph-'+r.id+'"><span style="font-size:12px;color:var(--t3)">...</span></div>':'';
+      return '<div class="ritem"><div class="rtop"><span>'+(r.repere||'Releve '+(idx+1))+' <span class="bdg '+cls+'">'+r.gravite+'</span></span><span class="rsurf">'+r.surface+' m²</span></div>'+gh+oh+pzone+'</div>';
     }).join('');
-    return '<div class="rgrp"><div class="rhdr"><span class="rn"><i class="ti ti-road" style="color:var(--o)"></i>'+rue+'</span><span class="rto">'+tot+' m\u00b2</span></div><div class="ritems">'+rows+'</div></div>';
+    return '<div class="rgrp"><div class="rhdr"><span class="rn"><i class="ti ti-road" style="color:var(--o)"></i>'+rue+'</span><span class="rto">'+tot+' m²</span></div><div class="ritems">'+rows+'</div></div>';
   }).join('');
-
-  // Charger les photos depuis IndexedDB de facon asynchrone
   var ids=releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
   if(!ids.length)return;
-  dbGetAllPhotos(ids,function(photosMap){
+  dbGetAll(ids,function(pm){
     ids.forEach(function(id){
       var el=document.getElementById('ph-'+id);
       if(!el)return;
-      var photos=photosMap[id]||[];
-      if(!photos.length){el.innerHTML='';return;}
+      var photos=pm[id]||[];
       el.innerHTML=photos.map(function(p){return '<img class="rph" src="'+p+'" onclick="openModal(this.src)">';}).join('');
     });
   });
 }
 
-/* === EXPORT ZIP (charge toutes les photos depuis IndexedDB) === */
-function exportZIP(){
-  if(!releves.length){toast('Aucun releve');return;}
-  if(typeof JSZip==='undefined'){toast('JSZip non charge');return;}
-  var btn=document.getElementById('btn-zip');
-  btn.innerHTML='<i class="ti ti-loader-2 gps-spin"></i> Chargement photos...';btn.disabled=true;
-
-  var ids=releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
-
-  function doZip(photosMap){
-    var zip=new JSZip(),folder=zip.folder('photos');
-    zip.file('nids_de_poule_'+today()+'.csv',buildCSV(true,photosMap));
-    releves.forEach(function(r){
-      var photos=photosMap[r.id]||[];
-      photos.forEach(function(d,i){
-        var n=(r.photoNames&&r.photoNames[i])?r.photoNames[i]:'photo_'+r.id+'_'+i+'.jpg';
-        var b=d.split(',')[1];if(b)folder.file(n,b,{base64:true});
-      });
-    });
-    zip.generateAsync({type:'blob'}).then(function(blob){
-      var a=document.createElement('a');a.href=URL.createObjectURL(blob);var fn=projet.nom?slugify(projet.nom):'nids_de_poule';a.download=fn+'_'+today()+'.zip';a.click();
-      btn.innerHTML='<i class="ti ti-download"></i> Telecharger ZIP';btn.disabled=false;
-      toast('ZIP telecharge');
-    }).catch(function(e){btn.innerHTML='<i class="ti ti-download"></i> Telecharger ZIP';btn.disabled=false;toast('Erreur: '+e.message);});
-  }
-
-  if(ids.length){
-    dbGetAllPhotos(ids,function(photosMap){doZip(photosMap);});
-  }else{
-    doZip({});
-  }
-}
-
-/* === CSV === */
-function buildCSV(wn,photosMap){
-  photosMap=photosMap||{};
+/* ================================================
+   CSV / EXPORT
+   ================================================ */
+function buildCSV(wn, pm){
+  pm=pm||{};
   var map={};releves.forEach(function(r){if(!map[r.rue])map[r.rue]=[];map[r.rue].push(r);});
-  // En-tete projet
   var lines=[
     'Projet;'+(projet.nom||''),
     'Ville;'+(projet.ville||''),
@@ -815,209 +752,97 @@ function buildCSV(wn,photosMap){
     'Surface totale m2;'+releves.reduce(function(a,r){return a+r.surface;},0).toFixed(1),
     ''
   ];
-  lines.push('\uFEFF'+'Rue;Repere;Gravite;Surface m2;Longueur m;Largeur m;Latitude;Longitude;Precision GPS;Source GPS;Observations;'+(wn?'Photos':'Nb photos')+';Horodatage');
+  lines.push('﻿'+'Rue;Repere;Gravite;Surface m2;Longueur m;Largeur m;Latitude;Longitude;Precision;Source GPS;Observations;'+(wn?'Photos':'Nb photos')+';Horodatage');
   Object.entries(map).forEach(function(e){
     var rue=e[0],items=e[1];
     items.forEach(function(r){
       var pv=wn?(r.photoNames?r.photoNames.join(' | '):''):(r.nbPhotos||0);
       lines.push(['"'+rue.replace(/"/g,'""')+'"','"'+(r.repere||'').replace(/"/g,'""')+'"',r.gravite,r.surface,r.longueur||'',r.largeur||'',r.gps?r.gps.lat:'',r.gps?r.gps.lng:'',r.gps&&r.gps.acc?r.gps.acc+'m':'',r.gps&&r.gps.src?r.gps.src:'','"'+(r.obs||'').replace(/"/g,'""')+'"','"'+pv+'"',new Date(r.ts).toLocaleString('fr-FR')].join(';'));
     });
-    var tot=items.reduce(function(a,r){return a+r.surface;},0).toFixed(1);
-    lines.push(['"TOTAL '+rue.replace(/"/g,'""')+'"','','',tot,'','','','','','','','',''].join(';'));
+    lines.push(['"TOTAL '+rue.replace(/"/g,'""')+'"','','',items.reduce(function(a,r){return a+r.surface;},0).toFixed(1),'','','','','','','','',''].join(';'));
     lines.push('');
   });
-  return lines.join('\r\n');
+  return lines.join('
+');
 }
 
-function exportCSV(){if(!releves.length){toast('Aucun releve');return;}var fn2=projet.nom?slugify(projet.nom):'nids_de_poule';dl(buildCSV(false,{}),'nids_de_poule_'+today()+'.csv','text/csv;charset=utf-8');toast('CSV telecharge');}
+function fn(){return (projet.nom?slugify(projet.nom):'nids_de_poule')+'_'+today();}
 
+function exportZIP(){
+  if(!releves.length){toast('Aucun releve');return;}
+  if(typeof JSZip==='undefined'){toast('JSZip non charge');return;}
+  var btn=document.getElementById('btn-zip');
+  btn.innerHTML='<i class="ti ti-loader-2 spin"></i> Generation...';btn.disabled=true;
+  var ids=releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
+  function doZip(pm){
+    var zip=new JSZip(),folder=zip.folder('photos');
+    zip.file(fn()+'.csv',buildCSV(true,pm));
+    releves.forEach(function(r){(pm[r.id]||[]).forEach(function(d,i){var n=(r.photoNames&&r.photoNames[i])?r.photoNames[i]:'photo_'+r.id+'_'+i+'.jpg';var b=d.split(',')[1];if(b)folder.file(n,b,{base64:true});});});
+    zip.generateAsync({type:'blob'}).then(function(blob){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn()+'.zip';a.click();btn.innerHTML='<i class="ti ti-download"></i> Telecharger ZIP';btn.disabled=false;toast('ZIP telecharge');}).catch(function(e){btn.innerHTML='<i class="ti ti-download"></i> Telecharger ZIP';btn.disabled=false;toast('Erreur: '+e.message);});
+  }
+  ids.length?dbGetAll(ids,doZip):doZip({});
+}
+function exportCSV(){if(!releves.length){toast('Aucun releve');return;}dl(buildCSV(false,{}),fn()+'.csv','text/csv;charset=utf-8');toast('CSV telecharge');}
 function exportKML(){
   var wg=releves.filter(function(r){return r.gps;});
   if(!wg.length){toast('Aucun releve avec GPS');return;}
   var st=['faible','moyen','grave'].map(function(g){var c=g==='faible'?'ff4caf50':g==='moyen'?'ff1e88e5':'fff44336';return '<Style id="'+g+'"><IconStyle><color>'+c+'</color><scale>1.2</scale><Icon><href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href></Icon></IconStyle></Style>';}).join('');
-  var pm=wg.map(function(r){return '<Placemark><name>'+r.rue.replace(/&/g,'&amp;')+' - '+r.surface+' m2</name><styleUrl>#'+r.gravite+'</styleUrl><description><![CDATA[<b>Rue:</b> '+r.rue+'<br><b>Repere:</b> '+(r.repere||'-')+'<br><b>Gravite:</b> '+r.gravite+'<br><b>Surface:</b> '+r.surface+' m2<br>'+(r.longueur?'<b>Dim.:</b> '+r.longueur+'x'+r.largeur+' m<br>':'')+(r.obs?'<b>Obs:</b> '+r.obs+'<br>':'')+'<b>Source GPS:</b> '+(r.gps.src||'')+'<br><b>Date:</b> '+new Date(r.ts).toLocaleString('fr-FR')+']]></description><Point><coordinates>'+r.gps.lng+','+r.gps.lat+',0</coordinates></Point></Placemark>';}).join('');
-  dl('<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>Nids de poule '+today()+'</name>'+st+pm+'</Document></kml>',"+(projet.nom?slugify(projet.nom):'nids_de_poule')+'_'+today()+'.kml','application/vnd.google-earth.kml+xml');
+  var pm=wg.map(function(r){return '<Placemark><name>'+r.rue.replace(/&/g,'&amp;')+' — '+r.surface+' m2</name><styleUrl>#'+r.gravite+'</styleUrl><description><![CDATA[<b>Projet:</b> '+projet.nom+'<br><b>Rue:</b> '+r.rue+'<br><b>Repere:</b> '+(r.repere||'-')+'<br><b>Gravite:</b> '+r.gravite+'<br><b>Surface:</b> '+r.surface+' m2<br>'+(r.obs?'<b>Obs:</b> '+r.obs+'<br>':'')+'<b>GPS:</b> '+(r.gps.src||'')+'<br><b>Date:</b> '+new Date(r.ts).toLocaleString('fr-FR')+']]></description><Point><coordinates>'+r.gps.lng+','+r.gps.lat+',0</coordinates></Point></Placemark>';}).join('');
+  dl('<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>'+(projet.nom||'Nids de poule')+' '+today()+'</name>'+st+pm+'</Document></kml>',fn()+'.kml','application/vnd.google-earth.kml+xml');
   toast('KML telecharge');
 }
-
-/* === SAUVEGARDE JSON (inclut les photos depuis IndexedDB) === */
 function saveJSON(){
   var ids=releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
-  if(!ids.length){
-    dl(JSON.stringify(releves,null,2),'ndp_'+today()+'.json','application/json');
-    toast('Sauvegarde OK');return;
+  function doSave(pm){
+    var data=releves.map(function(r){var c=Object.assign({},r);c.photos=pm[r.id]||[];return c;});
+    dl(JSON.stringify({projet:projet,releves:data},null,2),fn()+'.json','application/json');
+    toast('Sauvegarde OK');
   }
-  toast('Preparation sauvegarde...');
-  dbGetAllPhotos(ids,function(photosMap){
-    var export_data=releves.map(function(r){
-      var clone=Object.assign({},r);
-      clone.photos=photosMap[r.id]||[];
-      return clone;
-    });
-    dl(JSON.stringify(export_data,null,2),'ndp_'+today()+'.json','application/json');
-    toast('Sauvegarde OK (photos incluses)');
-  });
+  ids.length?dbGetAll(ids,doSave):doSave({});
 }
-
 function loadJSON(inp){
   var f=inp.files[0];if(!f)return;
   var rd=new FileReader();
   rd.onload=function(e){
     try{
       var data=JSON.parse(e.target.result);
-      // Separer metadonnees et photos
-      var pending_saves=0;
-      releves=data.map(function(r){
-        if(r.photos&&r.photos.length){
-          pending_saves++;
-          dbSavePhotos(r.id,r.photos,function(){pending_saves--;});
-        }
-        var meta=Object.assign({},r);
-        meta.nbPhotos=(r.photos||[]).length;
-        delete meta.photos;
-        return meta;
+      var rels=data.releves||data; // compat ancien format
+      if(data.projet){projet=Object.assign(projet,data.projet);}
+      releves=rels.map(function(r){
+        if(r.photos&&r.photos.length)dbSave(r.id,r.photos);
+        var m=Object.assign({},r);m.nbPhotos=(r.photos||[]).length;delete m.photos;return m;
       });
       persist();updateHdr();updateSug();
+      document.getElementById('hdr-titre').textContent=projet.nom+(projet.ville?' — '+projet.ville:'');
       toast(releves.length+' releves charges');
     }catch(ex){toast('Erreur JSON');}
   };
   rd.readAsText(f);inp.value='';
 }
-
 function clearAll(){
-  if(!confirm('Effacer tous les releves et photos ?'))return;
-  // Supprimer toutes les photos de IndexedDB
-  releves.forEach(function(r){dbDeletePhotos(r.id);});
-  releves=[];rueActive=null;
-  document.getElementById('ruebar').style.display='none';
-  persist();updateHdr();toast('Efface');
+  if(!confirm('Effacer tous les releves du projet ?'))return;
+  releves.forEach(function(r){dbDel(r.id);});
+  releves=[];persist();updateHdr();toast('Efface');
 }
 
-/* === UTILS === */
+/* ================================================
+   UTILS
+   ================================================ */
 function openModal(src){document.getElementById('modal-img').src=src;document.getElementById('modal').classList.add('open');}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('modal-img').src='';}
 function today(){return new Date().toISOString().slice(0,10);}
 function dl(c,n,m){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([c],{type:m}));a.download=n;a.click();}
 function toast(msg){var t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove();},2800);}
 
-function changerProjet(){
-  if(!confirm('Sauvegarder et quitter le projet actuel pour en commencer un nouveau ?'))return;
-  // Sauvegarder l'etat actuel
-  persist();
-  // Reinitialiser l'etat en memoire
-  releves=[];
-  projet={nom:'',ville:'',operateur:''};
-  gps=null;pending=[];rueActive=null;
-  document.getElementById('ruebar').style.display='none';
-  document.getElementById('projet-nom').value='';
-  document.getElementById('projet-ville').value='';
-  document.getElementById('projet-operateur').value='';
-  document.getElementById('projet-erreur').style.display='none';
-  chargerProjetsExistants();
-  // Rouvrir la modale projet
-  document.getElementById('modal-projet').style.display='flex';
-  showTab('saisie');
-}
+/* ================================================
+   INIT
+   ================================================ */
+// Attacher le bouton Demarrer APRES que le DOM est charge
+document.getElementById('btn-demarrer').addEventListener('click', demarrerProjet);
 
-/* === PROJET === */
-function demarrerProjet(){
-  var nom=document.getElementById('projet-nom').value.trim();
-  if(!nom){
-    document.getElementById('projet-erreur').style.display='block';
-    return;
-  }
-  document.getElementById('projet-erreur').style.display='none';
-
-  // Remplir l'objet projet
-  projet.nom=nom;
-  projet.ville=document.getElementById('projet-ville').value.trim();
-  projet.operateur=document.getElementById('projet-operateur').value.trim();
-  projet.date=today();
-  projet.key='ndp_projet_'+slugify(nom);
-
-  // Chercher si ce projet existe deja
-  try{
-    var existant=localStorage.getItem(projet.key);
-    if(existant){
-      var d=JSON.parse(existant);
-      releves=d.releves||[];
-    }else{
-      releves=[];
-    }
-  }catch(ex){releves=[];}
-
-  // Sauvegarder reference projet courant
-  try{localStorage.setItem('ndp_projet_courant',JSON.stringify(projet));}catch(ex){}
-
-  // Fermer la modale
-  document.getElementById('modal-projet').style.display='none';
-
-  // Mettre a jour le header
-  var titreEl=document.getElementById('projet-titre');
-  var villeEl=document.getElementById('projet-ville-hdr');
-  if(titreEl)titreEl.textContent=nom;
-  if(villeEl)villeEl.textContent=projet.ville||'';
-
-  updateSug();
-  updateHdr();
-  toast('Projet demarre : '+nom);
-}
-
-function reprendreProjet(key){
-  try{
-    var data=JSON.parse(localStorage.getItem(key));
-    if(!data)return;
-    document.getElementById('projet-nom').value=data.nom||'';
-    document.getElementById('projet-ville').value=data.ville||'';
-    document.getElementById('projet-operateur').value=data.operateur||'';
-  }catch(ex){}
-}
-
-function chargerProjetsExistants(){
-  var projets=[];
-  for(var i=0;i<localStorage.length;i++){
-    var k=localStorage.key(i);
-    if(k&&k.indexOf('ndp_projet_')===0&&k!=='ndp_projet_courant'){
-      try{
-        var d=JSON.parse(localStorage.getItem(k));
-        if(d&&d.nom)projets.push(d);
-      }catch(ex){}
-    }
-  }
-  if(!projets.length)return;
-  var wrap=document.getElementById('projets-existants');
-  var liste=document.getElementById('projets-liste');
-  wrap.style.display='block';
-  liste.innerHTML=projets.map(function(p){
-    return '<div onclick="reprendreProjet(''+slugify(p.nom||'')+'')" style="padding:8px 10px;border:1px solid var(--bl2);border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;background:var(--bi)">'
-      +'<strong>'+p.nom+'</strong>'+(p.ville?' &mdash; '+p.ville:'')
-      +'<div style="font-size:11px;color:var(--t3)">'+p.date+' &middot; '+(p.releves?p.releves.length:0)+' releves</div>'
-      +'</div>';
-  }).join('');
-}
-
-/* === INIT === */
-openDB(function(){
-  // Verifier si un projet courant existe
-  try{
-    var pc=localStorage.getItem('ndp_projet_courant');
-    if(pc){
-      var p=JSON.parse(pc);
-      projet=p;
-      // Charger les releves de ce projet
-      var data=localStorage.getItem(p.key);
-      if(data){
-        var d=JSON.parse(data);
-        releves=d.releves||[];
-      }
-      // Pré-remplir la modale avec le projet courant
-      document.getElementById('projet-nom').value=p.nom||'';
-      document.getElementById('projet-ville').value=p.ville||'';
-      document.getElementById('projet-operateur').value=p.operateur||'';
-    }
-  }catch(ex){}
-  chargerProjetsExistants();
-  updateSug();updateHdr();
+openDB(function() {
+  initApp();
 });
 </script>
 </body>
