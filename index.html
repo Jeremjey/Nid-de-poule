@@ -133,9 +133,13 @@ textarea{resize:vertical;min-height:60px}
 
 <div class="hdr">
   <div class="hico"><i class="ti ti-road"></i></div>
-  <div>
+  <div style="flex:1">
     <div style="font-size:16px;font-weight:600">Campagne nids de poule</div>
     <div id="hdr-sub" style="font-size:12px;color:var(--t3)">0 releve &middot; 0 m&sup2; total</div>
+  </div>
+  <div style="text-align:right;flex-shrink:0">
+    <div style="font-size:10px;color:var(--t3)"><i class="ti ti-device-floppy" style="font-size:11px"></i> AUTO</div>
+    <div id="autosave-ts" style="font-size:10px;color:var(--t3)">--</div>
   </div>
 </div>
 
@@ -364,6 +368,30 @@ var gpsWatcher=null; // watcher continu pour avoir coords fraiches
 try{var _s=localStorage.getItem('ndp12');if(_s)releves=JSON.parse(_s);}catch(e){}
 function persist(){try{localStorage.setItem('ndp12',JSON.stringify(releves));}catch(e){}}
 
+/* === SAUVEGARDE AUTO === */
+var _at=null;
+function autoSave(){
+  clearTimeout(_at);
+  _at=setTimeout(function(){
+    var ids=releves.filter(function(r){return r.nbPhotos;}).map(function(r){return r.id;});
+    function doSave(pm){
+      var data=releves.map(function(r){var c=Object.assign({},r);c.photos=pm[r.id]||[];return c;});
+      var blob=new Blob([JSON.stringify(data)],{type:'application/json'});
+      var a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);
+      var now=new Date();
+      a.download='ndp_auto_'+today()+'_'+pad(now.getHours())+'h'+pad(now.getMinutes())+'.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      // Indicateur dans le header
+      var el=document.getElementById('autosave-ts');
+      if(el){el.textContent=pad(now.getHours())+':'+pad(now.getMinutes());el.style.color='var(--g)';setTimeout(function(){el.style.color='var(--t3)';},3000);}
+    }
+    ids.length?dbLoadAll(ids,doSave):doSave({});
+  },2000);
+}
+function pad(n){return String(n).padStart(2,'0');}
+
 /* === TABS === */
 function showTab(t){
   ['saisie','recap','export'].forEach(function(x,i){
@@ -579,7 +607,7 @@ function addReleve(){
   // Sauvegarder photos dans IndexedDB, metadonnees dans localStorage
   dbSave(ts,_photos,function(){
     releves.push(_releve);
-    persist();updateSug();updateHdr();setRue(rue);
+    persist();updateSug();updateHdr();setRue(rue);autoSave();
   });
   document.getElementById('repere').value='';document.getElementById('obs').value='';
   document.getElementById('lon').value='';document.getElementById('lar').value='';document.getElementById('sman').value='';
