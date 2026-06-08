@@ -129,15 +129,15 @@ textarea{resize:vertical;min-height:60px}
     </div>
     <div class="card">
       <div class="ct"><span class="sn">1</span><i class="ti ti-camera" style="color:var(--o)"></i> Photo &amp; GPS</div>
-      <div class="photo-main-btn" onclick="captureGPSAndPhoto()">
+      <button type="button" class="photo-main-btn" onclick="captureGPSAndPhoto()" style="width:100%;font-family:inherit;text-align:center">
         <div class="ico"><i class="ti ti-camera-plus"></i></div>
         <div class="title">Photographier le nid de poule</div>
         <div class="sub">GPS capture automatiquement au moment de la prise de vue</div>
-      </div>
+      </button>
       <div class="photo-sub-row">
-        <div class="photo-sub-btn" onclick="captureGPSAndPhoto()"><i class="ti ti-camera"></i>Camera</div>
-        <div class="photo-sub-btn" onclick="document.getElementById('fi-gal').click()"><i class="ti ti-photo"></i>Galerie</div>
-        <div class="photo-sub-btn" onclick="tryGPSOnly()"><i class="ti ti-gps"></i>GPS seul</div>
+        <button type="button" class="photo-sub-btn" onclick="captureGPSAndPhoto()"><i class="ti ti-camera"></i>Camera</button>
+        <button type="button" class="photo-sub-btn" onclick="document.getElementById('fi-gal').click()"><i class="ti ti-photo"></i>Galerie</button>
+        <button type="button" class="photo-sub-btn" onclick="tryGPSOnly()"><i class="ti ti-gps"></i>GPS seul</button>
       </div>
       <input type="file" id="fi-cam" accept="image/*" capture="environment" style="display:none" onchange="onPhotoSelected(this)">
       <input type="file" id="fi-gal" accept="image/*" multiple style="display:none" onchange="onGallerySelected(this)">
@@ -280,7 +280,20 @@ function clearRue(){rueActive=null;document.getElementById('ruebar').style.displ
 /* GPS */
 function setGPSUI(state,title,val){var el=document.getElementById('gps-status');el.className='gps-status '+state;var icons={ok:'ti-map-pin-check',warn:'ti-map-pin-question',err:'ti-map-pin-off',loading:'ti-loader-2'};el.querySelector('i').className='ti '+icons[state]+(state==='loading'?' spin':'');el.querySelector('.gtitle').textContent=title;document.getElementById('gps-val').textContent=val||'';}
 function applyGPS(g,src){gps=g;if(!g){setGPSUI('warn','En attente','Prendre une photo ou GPS seul');return;}var L={auto:'GPS telephone',manuel:'Saisi manuellement',exif:'Photo (EXIF)'};setGPSUI('ok',L[src]||src,g.lat+', '+g.lng+(g.acc?' ±'+g.acc+'m':''));document.getElementById('g-lat').value=g.lat;document.getElementById('g-lng').value=g.lng;if(g.acc)document.getElementById('g-acc').value=g.acc;}
-function captureGPSAndPhoto(){document.getElementById('fi-cam').click();if(!navigator.geolocation){setGPSUI('err','GPS non disponible','Saisir manuellement');return;}setGPSUI('loading','GPS en cours...','');navigator.geolocation.getCurrentPosition(function(p){applyGPS({lat:p.coords.latitude.toFixed(6),lng:p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy),src:'auto'},'auto');},function(e){var m={1:'Autoriser dans Reglages > Safari',2:'GPS indisponible',3:'Reessayer en exterieur'};setGPSUI('err','GPS non obtenu',m[e.code]||'');},{enableHighAccuracy:true,timeout:15000,maximumAge:0});}
+function captureGPSAndPhoto(){
+  // iOS : click() DOIT etre la premiere instruction, sans aucun code avant
+  var inp=document.getElementById('fi-cam');
+  inp.value='';
+  inp.click();
+  // GPS en parallele (apres le click)
+  if(!navigator.geolocation){setGPSUI('err','GPS non disponible','Saisir manuellement');return;}
+  setGPSUI('loading','GPS en cours...','');
+  navigator.geolocation.getCurrentPosition(
+    function(p){applyGPS({lat:p.coords.latitude.toFixed(6),lng:p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy),src:'auto'},'auto');},
+    function(e){var m={1:'Autoriser dans Reglages > Safari > Localisation',2:'GPS indisponible',3:'Reessayer en exterieur'};setGPSUI('err','GPS non obtenu',m[e.code]||'');},
+    {enableHighAccuracy:true,timeout:15000,maximumAge:0}
+  );
+}
 function tryGPSOnly(){if(!navigator.geolocation){setGPSUI('err','GPS non disponible','Saisir manuellement');return;}setGPSUI('loading','Acquisition...','');navigator.geolocation.getCurrentPosition(function(p){applyGPS({lat:p.coords.latitude.toFixed(6),lng:p.coords.longitude.toFixed(6),acc:Math.round(p.coords.accuracy),src:'auto'},'auto');toast('GPS OK');},function(e){var m={1:'Permission refusee',2:'GPS indisponible',3:'Delai depasse'};setGPSUI('err',m[e.code]||'Erreur GPS','');},{enableHighAccuracy:true,timeout:12000,maximumAge:0});}
 function onManualGPS(){var lat=parseFloat(document.getElementById('g-lat').value.replace(',','.')),lng=parseFloat(document.getElementById('g-lng').value.replace(',','.')),acc=document.getElementById('g-acc').value;if(!isNaN(lat)&&!isNaN(lng)&&Math.abs(lat)<=90&&Math.abs(lng)<=180){applyGPS({lat:lat.toFixed(6),lng:lng.toFixed(6),acc:acc?parseInt(acc):null,src:'manuel'},'manuel');}else if(document.getElementById('g-lat').value||document.getElementById('g-lng').value){setGPSUI('err','Coordonnees invalides','');gps=null;}}
 function openGMaps(){window.open(gps?'https://maps.google.com/?q='+gps.lat+','+gps.lng:'https://maps.google.com','_blank');}
