@@ -360,7 +360,7 @@ textarea{resize:vertical;min-height:60px}
 </div>
 
 <div class="savebar" id="savebar">
-  <button class="btn btp btf" onclick="addReleve()" style="font-size:15px;padding:13px">
+  <button id="btn-save" class="btn btp btf" onclick="addReleve()" style="font-size:15px;padding:13px">
     <i class="ti ti-check"></i> Enregistrer le releve
   </button>
 </div>
@@ -446,6 +446,7 @@ function checkStorageAndWarn(){
 
 /* === STATE === */
 var releves=[],gps=null,pending=[],rueActive=null;
+var projet={nom:'',ville:'',operateur:'',key:'',date:''};
 // releves ne contient PLUS les photos (stockees dans IndexedDB)
 // On garde juste les metadonnees + noms de fichiers
 try{var _s=localStorage.getItem('ndp13');if(_s)releves=JSON.parse(_s);}catch(e){}
@@ -689,25 +690,43 @@ function addReleve(){
 
   var releve={id:ts,rue:rue,repere:rep,gravite:document.getElementById('gravite').value,longueur:l||null,largeur:w||null,surface:surf,obs:document.getElementById('obs').value.trim(),gps:gps?Object.assign({},gps):null,photoNames:pNames,nbPhotos:pending.length,ts:new Date(ts).toISOString()};
 
-  // Sauvegarder photos dans IndexedDB (pas dans localStorage)
+  // Bloquer le bouton pendant l'ecriture IndexedDB
+  var saveBtn=document.getElementById('btn-save');
+  saveBtn.disabled=true;
+  saveBtn.innerHTML='<i class="ti ti-loader-2 gps-spin"></i> Sauvegarde...';
+
   var photosACopier=pending.slice();
+
+  // Timeout securite 8s : si IndexedDB bloque on continue quand meme
+  var secTimer=setTimeout(function(){
+    console.warn('IndexedDB timeout');
+    afterSave();
+  },8000);
+
   dbSavePhotos(ts, photosACopier, function(){
-    releves.push(releve);
-    persist();updateSug();updateHdr();setRue(rue);
-    autoSave(); // sauvegarde automatique JSON apres chaque releve
+    clearTimeout(secTimer);
+    afterSave();
   });
 
-  // Reset immediat de l'UI
-  document.getElementById('repere').value='';document.getElementById('obs').value='';
-  document.getElementById('lon').value='';document.getElementById('lar').value='';document.getElementById('sman').value='';
-  document.getElementById('scalc').textContent='--';
-  pending=[];renderThumbs();
-  gps=null;
-  document.getElementById('g-lat').value='';document.getElementById('g-lng').value='';document.getElementById('g-acc').value='';
-  setGPSUI('warn','En attente','Prendre une photo pour le prochain releve');
-  toast('Releve enregistre - '+surf+' m\u00b2');
-  document.querySelector('.tc').scrollTo(0,0);
-}
+  function afterSave(){
+    // Confirmation IndexedDB recue -> valider le releve
+    releves.push(releve);
+    persist();updateSug();updateHdr();setRue(rue);
+    autoSave();
+    // Debloquer bouton
+    saveBtn.disabled=false;
+    saveBtn.innerHTML='<i class="ti ti-check"></i> Enregistrer le releve';
+    // Reset UI
+    document.getElementById('repere').value='';document.getElementById('obs').value='';
+    document.getElementById('lon').value='';document.getElementById('lar').value='';document.getElementById('sman').value='';
+    document.getElementById('scalc').textContent='--';
+    pending=[];renderThumbs();
+    gps=null;
+    document.getElementById('g-lat').value='';document.getElementById('g-lng').value='';document.getElementById('g-acc').value='';
+    setGPSUI('warn','En attente','Prendre une photo pour le prochain releve');
+    toast('Releve enregistre - '+surf+' m²');
+    document.querySelector('.tc').scrollTo(0,0);
+  }
 
 function updateSug(){var rs=releves.map(function(r){return r.rue;}).filter(function(v,i,a){return a.indexOf(v)===i;});document.getElementById('rue-dl').innerHTML=rs.map(function(r){return '<option value="'+r+'">';}).join('');}
 function updateHdr(){var n=releves.length,s=releves.reduce(function(a,r){return a+r.surface;},0).toFixed(1);document.getElementById('hdr-sub').textContent=n+' releve'+(n>1?'s':'')+' \u00b7 '+s+' m\u00b2 total';}
@@ -901,40 +920,47 @@ function changerProjet(){
 }
 
 /* === PROJET === */
-var projet={nom:'',ville:'',operateur:''};
-
 function demarrerProjet(){
   var nom=document.getElementById('projet-nom').value.trim();
-  if(!nom){document.getElementById('projet-erreur').style.display='block';return;}
+  if(!nom){
+    document.getElementById('projet-erreur').style.display='block';
+    return;
+  }
   document.getElementById('projet-erreur').style.display='none';
+
+  // Remplir l'objet projet
   projet.nom=nom;
   projet.ville=document.getElementById('projet-ville').value.trim();
   projet.operateur=document.getElementById('projet-operateur').value.trim();
   projet.date=today();
+  projet.key='ndp_projet_'+slugify(nom);
 
-  // Chercher si ce projet existe deja dans localStorage
-  var key='ndp_projet_'+slugify(nom);
-  var existant=null;
-  try{var e=localStorage.getItem(key);if(e)existant=JSON.parse(e);}catch(ex){}
+  // Chercher si ce projet existe deja
+  try{
+    var existant=localStorage.getItem(projet.key);
+    if(existant){
+      var d=JSON.parse(existant);
+      releves=d.releves||[];
+    }else{
+      releves=[];
+    }
+  }catch(ex){releves=[];}
 
-  if(existant){
-    // Charger les releves existants
-    releves=existant.releves||[];
-    updateSug();updateHdr();
-  }
-
-  // Sauvegarder le projet courant
-  projet.key=key;
+  // Sauvegarder reference projet courant
   try{localStorage.setItem('ndp_projet_courant',JSON.stringify(projet));}catch(ex){}
 
   // Fermer la modale
   document.getElementById('modal-projet').style.display='none';
 
   // Mettre a jour le header
-  document.getElementById('projet-titre').textContent=nom;
-  document.getElementById('projet-ville-hdr').textContent=projet.ville?projet.ville:'';
+  var titreEl=document.getElementById('projet-titre');
+  var villeEl=document.getElementById('projet-ville-hdr');
+  if(titreEl)titreEl.textContent=nom;
+  if(villeEl)villeEl.textContent=projet.ville||'';
+
+  updateSug();
   updateHdr();
-  toast('Projet : '+nom);
+  toast('Projet demarre : '+nom);
 }
 
 function reprendreProjet(key){
